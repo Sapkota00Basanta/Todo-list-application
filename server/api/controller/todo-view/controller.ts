@@ -44,7 +44,7 @@ export class TodoController {
   }
   async deleteTodo(_request: Request, _response: Response) {
     try {
-      await TodoListService.deleletTodo(_request);
+      await TodoListService.deleteTodo(_request);
       _response.redirect('/view/todo-management/homepage');
     } catch (error: any) {
       return _response.status(404).json({

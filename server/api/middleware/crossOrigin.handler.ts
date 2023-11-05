@@ -1,17 +1,17 @@
-import {Request, Response, NextFunction} from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-const allowCrossDomian = (
+const allowCrossDomain = (
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
   res.header(
     'Access-Control-Allow-Methods',
-    'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+    'GET, POST, PUT, PATCH, DELETE, OPTIONS',
   );
   _next();
 };
 
-export default allowCrossDomian;
+export default allowCrossDomain;

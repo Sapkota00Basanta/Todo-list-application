@@ -14,7 +14,7 @@
 To run this project, install it locally using yarn:
 
 ```
-$ cp server/example.sample server/env.local
+$ cp server/.env.sample server/env.local
 $ yarn
 $ Yarn dev
 ```
@@ -33,6 +33,10 @@ $ docker compose up
 ```
 
 ## Routes
+
+Health Routes:
+
+- "http://localhost:3000/" -> Get the health check status of the server.
 
 API Routes:
 

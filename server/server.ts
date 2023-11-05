@@ -5,18 +5,18 @@ import express, { Application } from 'express';
 import helmet from 'helmet';
 import http from 'http';
 import os from 'os';
-import allowCrossDomian from '../api/middleware/crossOrigin.handler';
-import errorHandler from '../api/middleware/error.handler';
-import connectDB from '../database/connection';
-import envConfig from '../utils/envConfig';
-import validateEnv from '../utils/validateEnv';
-import logger from './logger';
+import allowCrossDomain from './api/middleware/crossOrigin.handler';
+import errorHandler from './api/middleware/error.handler';
+import connectDB from './database/connection';
+import envConfig from './utils/envConfig';
+import validateEnv from './utils/validateEnv';
+import logger from './helpers/logger';
 import path from 'path';
 
 // Setting Up Express server
 export const app = express();
 
-// Validating environment varaiables to prevent unnecessary malfunction
+// Validating environment variables to prevent unnecessary malfunction
 validateEnv();
 
 //Defining a class for server with its methods
@@ -25,7 +25,7 @@ export default class ExpressServer {
     //Initial Middlewares Calls
     envConfig;
     app.use(cors());
-    app.use(allowCrossDomian);
+    app.use(allowCrossDomain);
     app.use(helmet());
     app.use(
       bodyParser.urlencoded({
@@ -39,7 +39,8 @@ export default class ExpressServer {
       }),
     );
     app.set('view engine', 'ejs');
-    app.set('views', path.join(__dirname, '../views'));
+    app.set('views', path.join(__dirname, './views'));
+    app.use(express.static(path.join(__dirname, '../public')));
   }
 
   // Routes Method to use routes

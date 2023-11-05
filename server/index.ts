@@ -1,5 +1,5 @@
 // Module Import Definations
-import server from './helpers/server';
+import server from './server';
 import routes from './routes';
 
 // Fetch environment values to create new Express Server

@@ -10,7 +10,7 @@ import { validationResult } from 'express-validator';
  */
 export class TodoListService {
   /**
-   * This service method is responsible for fetching all the todos from database
+   * This service method is responsible for fetching all the todo from database
    * @param request Incoming Request Object
    * @returns Array of Todo List object
    */
@@ -65,13 +65,10 @@ export class TodoListService {
   addTodo = async (request: Request): Promise<any> => {
     try {
       const { name, description, date, isComplete } = request.body;
-      // if (!name || !description || !date) {
-      //   throw new Error('All the required fields must be provided');
-      // }
 
-      const errror = validationResult(request);
-      if (!errror.isEmpty()) {
-        throw new Error(errror.array()[0].msg);
+      const error = validationResult(request);
+      if (!error.isEmpty()) {
+        throw new Error(error.array()[0].msg);
       }
 
       const todoInput: TodoInput = {
@@ -91,7 +88,7 @@ export class TodoListService {
 
   /**
    * This service method is responsible for updating todo object with matching id.
-   * @param request Incoming reques object.
+   * @param request Incoming request object.
    * @returns Currently updated todo object.
    */
   editTodo = async (request: Request): Promise<any> => {
@@ -100,13 +97,10 @@ export class TodoListService {
       if (!_id) throw new Error(`Id field is required`);
 
       const { name, description, date } = request.body;
-      // if (!name || !description || !date) {
-      // throw new Error('All the required fields must be provided');
-      // }
 
-      const errror = validationResult(request);
-      if (!errror.isEmpty()) {
-        throw new Error(errror.array()[0].msg);
+      const error = validationResult(request);
+      if (!error.isEmpty()) {
+        throw new Error(error.array()[0].msg);
       }
 
       let isComplete = request.body?.isComplete ? true : false;
@@ -138,7 +132,7 @@ export class TodoListService {
    * @param request Incoming request object
    * @returns Status of deleting todo request along with message.
    */
-  deleletTodo = async (request: Request): Promise<any> => {
+  deleteTodo = async (request: Request): Promise<any> => {
     try {
       const { _id } = request.params;
       if (!_id) throw new Error(`Id field is required`);

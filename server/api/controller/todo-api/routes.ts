@@ -14,4 +14,4 @@ export default express
   .get('/todos/:_id', TodoController.getTodo)
   .post('/todos', createTodoValidator, TodoController.addTodo)
   .post('/todos/:_id', editTodoValidator, TodoController.editTodo)
-  .delete('/todos/:_id', TodoController.deletTodo);
+  .delete('/todos/:_id', TodoController.deleteTodo);

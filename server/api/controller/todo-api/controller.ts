@@ -1,4 +1,4 @@
-// Third-pary Module Definations
+// Third-party Module Definations
 import { Request, Response } from 'express';
 
 // User-Defined Module Definations
@@ -64,8 +64,8 @@ export class TodoController {
         });
       });
   }
-  deletTodo(_request: Request, _response: Response): void {
-    TodoService.deleletTodo(_request)
+  deleteTodo(_request: Request, _response: Response): void {
+    TodoService.deleteTodo(_request)
       .then((result: any) => {
         _response.json(result);
       })
