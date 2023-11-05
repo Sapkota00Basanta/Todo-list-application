@@ -14,7 +14,7 @@
 To run this project, install it locally using yarn:
 
 ```
-$ mv server/example.sample server/env.local
+$ cp server/example.sample server/env.local
 $ yarn
 $ Yarn dev
 ```
@@ -28,18 +28,20 @@ $ yarn test
 
 ## Routes
 
-1. API Routes:
-   a. "http://localhost:3000/api/v1/todo-management/todos" -> Get all todos.
-   b. "http://localhost:3000/api/v1/todo-management/todos/:\_id" -> Get the specific id.
-   c. "http://localhost:3000/api/v1/todo-management/todos" -> Create a new todo.
-   d. "http://localhost:3000/api/v1/todo-management/todos/:\_id" -> Update a specific todd.
-   e. "http://localhost:3000/api/v1/todo-management/todos/:\_id" -> Delete the specific todo \_id.
+API Routes:
 
-2. View Routes:
-   a. "http://localhost:3000/view/todo-management/homepage" -> Main home page of application.
-   b. "http://localhost:3000/view/todo-managmenet/addTodo" -> Add Todo page.
-   c. "http://localhost:3000/view/todo-management/editTodo/:\_id" -> Edit todo page.
-   d. "http://localhost:3000/view/todo-management/delete/:\_id" -> Delete todo.
+1.  "http://localhost:3000/api/v1/todo-management/todos" -> Get all todos.
+2.  "http://localhost:3000/api/v1/todo-management/todos/:\_id" -> Get the specific id.
+3.  "http://localhost:3000/api/v1/todo-management/todos" -> Create a new todo.
+4.  "http://localhost:3000/api/v1/todo-management/todos/:\_id" -> Update a specific todd.
+5.  "http://localhost:3000/api/v1/todo-management/todos/:\_id" -> Delete the specific todo \_id.
+
+View Routes:
+
+1.  "http://localhost:3000/view/todo-management/homepage" -> Main home page of application.
+2.  "http://localhost:3000/view/todo-managmenet/addTodo" -> Add Todo page.
+3.  "http://localhost:3000/view/todo-management/editTodo/:\_id" -> Edit todo page.
+4.  "http://localhost:3000/view/todo-management/delete/:\_id" -> Delete todo.
 
 ## Technologies
 
