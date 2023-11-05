@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head") %>
+    <style>
+      aside.addTodo {
+        text-align: center;
+        background-color: rgba(224, 226, 199, 0.8);
+        padding: 30px;
+        border-radius: 20px;
+        width: 40%;
+        border: rgba(154, 158, 103, 0.3) solid thin;
+        box-shadow: 0 0 20px 0 rgba(154, 158, 103, 0.4);
+      }
+
+      section.addTodo h1 {
+        font-size: 45px;
+        color: #333;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      .formGroup {
+        text-align: start;
+        margin: 10px 0;
+        border-bottom: #9e5555 solid 2px;
+        padding: 8px 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .formGroup label {
+        font-size: 18;
+        width: 20%;
+        font-weight: 400;
+      }
+
+      input[type="text"],
+      textarea,
+      input[type="date"] {
+        width: 90%;
+        font-size: 16;
+        border: none;
+        background-color: transparent;
+        outline: none;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        padding: 10px 0;
+        margin-top: 10px;
+        border-radius: 3px;
+        border: none;
+        font-weight: 400;
+        font-size: 18px;
+        color: #fff;
+        background: linear-gradient(230deg,#cc8787, #8d8dc2 );
+        cursor: pointer;
+      }
+
+      .addTodo #redirectHomepage {
+        padding: 10px 5px;
+        border-radius: 3px;
+        border: none;
+        font-weight: 400;
+        font-size: 18px;
+        color: #fff;
+        background: linear-gradient(230deg,#cc8787, #8d8dc2 );
+        cursor: pointer;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <aside class="addTodo">
+        <%- include("../partials/redirectHome") %>
+      <h1>Add Todo list Section</h2>
+        <form action="/api/v1/todo-management/todos" method="post" id="addForm">
+          <div class="formGroup" id="fname">
+            <label for="name"> * Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Set Name here!"
+              required
+              aria-required="true"
+              autocomplete="off"
+              pattern=".{3,}" 
+              minlength="8"
+              title="Please enter at least 3 characters"
+            />
+          </div>
+          <div class="formGroup" id="fdescription">
+            <label for="description"> * Description:</label>
+            <textarea
+              name="description"
+              placeholder="Set Description here!"
+              rows="5"
+              cols="3"
+              autocomplete="off"
+              id="description"
+              style="resize: none;"
+              required
+              aria-required="true"
+            ></textarea>
+          </div>
+          <span id="descriptionError"></span>
+          <div class="formGroup">
+            <label for="isComplete"> Complete Status : </label>
+            <input type="checkbox" id="isComplete" />
+          </div>
+          <div class="formGroup" id="fdate">
+            <label for="date">* Date: </label>
+            <input type="date" id="date" name="date" min="2023-01-01" max="2025-01-01" required aria-required="true"/>
+          </div>
+          <span id="dateError"></span>
+          <button type="submit">Add todo</button>
+        </form>
+      </aside>
+    </main>
+  </body>
+</html>

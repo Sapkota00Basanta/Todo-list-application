@@ -1,0 +1,13 @@
+# Specify the version of docker-compose
+version: '2'
+
+services:
+  commenting-application:
+    build: ./ # Build an image using our Docker File
+    ports:
+      - 3000:3000 # Mapped docker port 3000(left-side) to our local port 3000 (right-side)
+    volumes:
+      - .:/usr/share/app # Mount the local src folder with our docker src to quick keep track of changes.
+      - /usr/share/app/node_modules # Making sure only docker uses it own node modules and not shares with host machine.
+    command: yarn start
+    network_mode: host

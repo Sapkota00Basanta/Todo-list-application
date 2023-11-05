@@ -1,0 +1,11 @@
+# Node Modules Directory
+node_modules
+
+# Final Build Directory
+dist
+
+# Environment Variable
+.env.local
+
+# Test coverage directory
+coverage

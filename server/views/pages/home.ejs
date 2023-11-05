@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head") %>
+    <style>
+      #homepage {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        color: #333;
+      }
+
+      #homepage h1 {
+        font-size: 45px;
+        font-weight: 400;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      #homepage h2 {
+        font-weight: 400;
+      }
+
+      #homepage .menuContainers {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      #homepage #redirectHomepage {
+        padding: 10px 30px;
+        margin-right: 10px;
+        background: linear-gradient(230deg, #ac4c4c, #161675);
+      }
+
+      #homepage .addTodo {
+        padding: 10px 40px;
+        background: linear-gradient(230deg, #ac4c4c, #161675);
+      }
+
+      #homepage h3 {
+        font-weight: 400;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      #homepage .filterGroup {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .filterGroup a {
+        background: linear-gradient(230deg, #b46e6e, #333377);
+        margin-right: 5px;
+        font-size: 14px;
+        padding: 20px 30px;
+      }
+
+      #homepage a {
+        padding: 0.5rem;
+        background-color: rgb(81, 81, 180);
+        color: white;
+        text-decoration: none;
+        border-radius: 10%;
+      }
+
+      #homepage ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      #homepage li {
+        height: 20vh;
+        background-color: rgba(224, 226, 199, 0.8);
+        padding: 40px;
+        border-radius: 20px;
+        border: rgba(154, 158, 103, 0.3) solid thin;
+        box-shadow: 0 0 20px 0 rgba(154, 158, 103, 0.4);
+        margin: 1rem 2rem;
+      }
+
+      #homepage .todoButtons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+      }
+
+      .todoButtons a {
+        margin-right: 2px;
+        padding: 10px 30px;
+        background: linear-gradient(230deg, #806060, #4a4aa7);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section id="homepage">
+        <h1>Todo List Application</h1>
+        <h2>Today Date : <%= new Date(Date.now()).toDateString() %></h2>
+        <div class="menuContainers">
+          <%- include("../partials/redirectHome") %>
+          <a class="addTodo" href="/view/todo-management/addTodo">Add Todo</a>
+        </div>
+        <h3>Filter By :</h3>
+        <div class="filterGroup">
+          <a href="/view/todo-management/homepage?isDone=true">Done</a>
+          <a href="/view/todo-management/homepage?isDone=false">Pending</a>
+          <a href="/view/todo-management/homepage?today=true">Today</a>
+          <a href="/view/todo-management/homepage?upcoming=true">Upcoming</a>
+        </div>
+        <ul>
+          <% todos && todos.map((todo) => { %>
+          <li>
+            <h3><%= todo.name %></h3>
+            <p
+              style="
+                font-size: 14px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+              "
+            >
+              <%= todo.description %>
+            </p>
+            <p style="font-size: 14px">
+              <%= !todo.isComplete ? "Working on it!" : "Complete" %>
+            </p>
+            <p style="font-size: 13px">
+              <%= new Date(todo.date).toDateString() %>
+            </p>
+            <div class="todoButtons">
+              <a href="/view/todo-management/editTodo/<%=todo.id%>">Edit </a>
+              <a href="/view/todo-management/delete/<%= todo.id%>">Delete </a>
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
