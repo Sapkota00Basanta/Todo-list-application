@@ -26,6 +26,12 @@ $ yarn dev
 $ yarn test
 ```
 
+To run on docker,
+
+```
+$ docker compose up
+```
+
 ## Routes
 
 API Routes:
