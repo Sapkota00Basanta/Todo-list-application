@@ -1,6 +1,6 @@
 # Todo List Application
 
-### This repository consists of full working todo list application. Here, user can create, update, view and delet any todolist. They can search through the li cost and filter by completed and upcoming list. Mongodb is used as primary database to store the todo list items.
+### This repository consists of full working todo list application. Here, user can create, update, view and delet any todolist. They can filter by completed, pending, today and upcoming. Mongodb is used as primary database to store the todo list items.
 
 ## Table of contents
 
